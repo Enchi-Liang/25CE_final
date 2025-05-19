@@ -31,9 +31,12 @@ def write_file(filepath, data):
         f.write(data)
 
 if __name__ == "__main__":
-    key = bytes.fromhex("6c119f1b78f835b1bbf9d026ef50a10164bbd53ac9e7c1a773db77486e6d368f")
+    with open('key.txt', 'r') as f:
+        key = f.read().strip()
+    key = bytes.fromhex(key)  
+    if len(key) != 32:
+        raise ValueError("Key must be 32 bytes for AES-256")
     iv = os.urandom(16)  # Generate a random IV
-    plaintext = read_file('input.txt')  # Change to your input file
+    plaintext = read_file('input.txt')  
     encrypted = aes_encrypt(plaintext, key)
     write_file('encrypted.bin', encrypted)
-    # Save the key securely for decryption!

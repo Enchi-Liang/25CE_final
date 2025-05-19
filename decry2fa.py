@@ -54,7 +54,11 @@ def aes_decrypt(ciphertext, key, iv):
 output decrypted file
 '''
 if __name__ == "__main__":
-    key = bytes.fromhex("6c119f1b78f835b1bbf9d026ef50a10164bbd53ac9e7c1a773db77486e6d368f")
+    with open('key.txt', 'r') as f:
+        key = f.read().strip()
+    key = bytes.fromhex(key)
+    if len(key) != 32:
+        raise ValueError("Key must be 32 bytes for AES-256")
     ciphertext = read_file('encrypted.bin')
     plaintext = aes_decrypt(ciphertext[16:], key, ciphertext[:16]) 
     write_file('decrypted.txt', plaintext)
