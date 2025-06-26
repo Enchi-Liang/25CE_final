@@ -5,6 +5,12 @@
 This project demonstrates client-side encryption using AES-256 in CBC mode, combined with Two-Factor Authentication (2FA).
 It is intended for educational purposes and simulates how encryption and decryption can be managed on the client side.
 
+### 2025/6/26 update 
+113下 密碼工程 期末project
+成績:76/100 (含互評+助教評分?細節不清楚，佔學期總成績15%)
+> 算合理的成績，畢竟做的挺簡陋、陽春(算一算大概不影響A+就放飛了)。
+
+
 ### Included Files
 
 - `encry.py` — Encrypts a file (`input.txt`) using AES-256-CBC with a random IV and a key from `key.txt`.
